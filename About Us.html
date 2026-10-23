@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Christ Life Restoration Ministries</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background: #fffaf0;
+            color: #30253b;
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 6%;
+            background: #2c1446;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .church-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .nav-logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #e6c76b;
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            list-style: none;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .active {
+            color: #e6c76b;
+        }
+
+        header {
+            background: linear-gradient(rgba(48, 15, 72, .9), rgba(105, 45, 145, .9));
+            color: white;
+            text-align: center;
+            padding: 75px 20px 85px;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        header p {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .established {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 6px 18px;
+            border: 2px solid #e6c76b;
+            border-radius: 25px;
+            color: #e6c76b;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        main {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 55px 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #54218a;
+            margin-bottom: 18px;
+        }
+
+        .introduction {
+            max-width: 800px;
+            margin: 0 auto 55px;
+            text-align: center;
+        }
+
+        .introduction p {
+            margin-bottom: 10px;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 55px;
+        }
+
+        .main-card {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            border-top: 5px solid #c9a24d;
+            box-shadow: 0 5px 15px #ddd;
+        }
+
+        .main-card h2 {
+            color: #6f2dbd;
+            text-align: left;
+        }
+
+        .main-card p {
+            margin-top: 10px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 55px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 24px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px #ddd;
+        }
+
+        .value-card h3 {
+            color: #6f2dbd;
+            margin: 6px 0;
+        }
+
+        .beliefs {
+            background: #f2e7ff;
+            padding: 30px;
+            border-left: 6px solid #c9a24d;
+            border-radius: 10px;
+            margin-bottom: 55px;
+        }
+
+        .beliefs li {
+            margin: 6px 0 6px 20px;
+        }
+
+        .leadership {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .leader-photo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #54218a, #c9a24d);
+        }
+
+        .leader-photo img {
+            width: 240px;
+            height: 295px;
+            max-width: 100%;
+            border-radius: 12px;
+            border: 4px solid white;
+            object-fit: cover;
+            object-position: top center;
+            margin-bottom: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .leader-icon {
+            font-size: 55px;
+            margin-bottom: 8px;
+        }
+
+        .leader-info {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px #ddd;
+        }
+
+        .leader-info h2 {
+            text-align: left;
+            color: #6f2dbd;
+        }
+
+        .leader-info p {
+            margin-top: 10px;
+        }
+
+        .scripture {
+            background: linear-gradient(135deg, #54218a, #7c3bb2);
+            color: white;
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        .scripture blockquote {
+            max-width: 800px;
+            margin: auto;
+            font-size: 21px;
+            font-style: italic;
+        }
+
+        .scripture cite {
+            display: block;
+            margin-top: 12px;
+            color: #f0d27d;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .cta {
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 14px 5px;
+            padding: 11px 20px;
+            border-radius: 22px;
+            background: #c9a24d;
+            color: #2c1446;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #e6c76b;
+        }
+
+        footer {
+            background: #2c1446;
+            color: white;
+            text-align: center;
+            padding: 22px;
+        }
+
+        footer p {
+            margin: 3px;
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .mission-vision,
+            .leadership {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 36px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="church-brand">
+            <img src="church-logo.jpg" alt="Christ Life Restoration Ministries Logo" class="nav-logo">
+            <span>Christ Life Restoration Ministries</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="Christ%20Life.html">Home</a></li>
+            <li><a href="Hope%20%26%20Strength.html">Hope &amp; Strength</a></li>
+            <li><a href="About%20Us.html" class="active">About Us</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="Contacts.html">Contact</a></li>
+            <li><a href="Programmer.html">Site Developer</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>About Us</h1>
+        <p>Who we are, what we believe, and why we exist — to see lives restored through Jesus Christ.</p>
+        <div class="established">EST. 2018</div>
+    </header>
+
+    <main>
+
+        <section class="introduction">
+            <h2>Welcome to Christ Life Restoration Ministries</h2>
+            <p>Christ Life Restoration Ministries started in 2018 out of a simple desire — share the love of Jesus and
+                bring real hope and healing to people's lives.</p>
+            <p>Everyone has value and purpose in God's plan, no matter what season they're walking through. There's hope
+                through Christ.</p>
+            <p>We want to be a place where people can worship, grow in faith, receive prayer, and serve others.</p>
+        </section>
+
+        <section class="mission-vision">
+            <div class="main-card">
+                <h2>Our Mission</h2>
+                <p>To proclaim the Gospel, teach God's Word, and help people and families find real restoration.</p>
+                <p>We want to reach people with the message of salvation, strengthen believers, and support those going
+                    through hard seasons.</p>
+            </div>
+            <div class="main-card">
+                <h2>Our Vision</h2>
+                <p>Transformed lives, restored families, and a community passionate about following Jesus.</p>
+                <p>A church family where people find their purpose and carry it into their homes and communities.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3>✝️ Faith</h3>
+                    <p>Living by faith in God and His Word, every day.</p>
+                </div>
+                <div class="value-card">
+                    <h3>❤️ Love</h3>
+                    <p>Showing Christ's love by caring for people and our community.</p>
+                </div>
+                <div class="value-card">
+                    <h3>🙏 Prayer</h3>
+                    <p>Prayer runs through everything we do here.</p>
+                </div>
+                <div class="value-card">
+                    <h3>📖 God's Word</h3>
+                    <p>Building our lives on the truth of Scripture.</p>
+                </div>
+                <div class="value-card">
+                    <h3>🕊️ Restoration</h3>
+                    <p>God restores hope, heals hearts, and gives new beginnings.</p>
+                </div>
+                <div class="value-card">
+                    <h3>🤝 Fellowship</h3>
+                    <p>We grow stronger worshiping, praying, and serving together.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="beliefs">
+            <h2>What We Believe</h2>
+            <ul>
+                <li>One God, Creator of heaven and earth.</li>
+                <li>Jesus Christ, the Son of God and Savior of the world.</li>
+                <li>Salvation through faith in Jesus Christ.</li>
+                <li>The Holy Spirit works in the lives of God's people.</li>
+                <li>The Bible is God's Word and foundational to Christian life.</li>
+                <li>The power of prayer, worship, fellowship, and service.</li>
+                <li>God gives hope, purpose, and restoration.</li>
+                <li>We're called to love God and love others.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Our Leadership</h2>
+            <div class="leadership">
+                <div class="leader-photo">
+                        <img src="Pam.jpg" alt="Pastor Pamela Mtshini">
+                    <p><strong>Pastor Pamela Mtshini</strong></p>
+                </div>
+                <div class="leader-info">
+                    <h2>Our Pastor and Leadership</h2>
+                    <p>Our leadership serves God and this church family with humility, integrity, and love.</p>
+                    <p>We lead through biblical teaching, prayer, pastoral care, and just showing up for people.</p>
+                    <p><strong>Pastor:</strong> Pamela Mtshini </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="scripture">
+        <h2>Our Foundation</h2>
+        <blockquote>"Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!"
+        </blockquote>
+        <cite>2 Corinthians 5:17</cite>
+    </section>
+
+    <section class="cta">
+        <h2>You Are Welcome Here</h2>
+        <p>Looking for a church family, needing prayer, or just curious about Jesus — come as you are.</p>
+        <a href="Christ%20Life.html" class="button">Return to Home</a>
+        <a href="Hope%20%26%20Strength.html" class="button">Find Hope &amp; Strength</a>
+        <a href="Services.html" class="button">Our Services</a>
+        <a href="Contacts.html" class="button">Contact Us</a>
+        <a href="Programmer.html" class="button">Site Developer</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2018–2026 Christ Life Restoration Ministries.</p>
+        <p>Faith • Hope • Love • Restoration</p>
+    </footer>
+
+</body>
+
+</html>

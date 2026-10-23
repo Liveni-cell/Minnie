@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Christ Life Restoration Ministries</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: #fffaf0;
+            color: #30253b;
+            line-height: 1.6;
+        }
+
+        nav {
+            background: #2c1446;
+            color: white;
+            padding: 14px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .nav-logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #e6c76b;
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 16px;
+            list-style: none;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover,
+        .active {
+            color: #e6c76b;
+        }
+
+        header {
+            background: linear-gradient(rgba(48, 15, 72, .85), rgba(105, 45, 145, .85)), url("church-logo.jpg") center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 85px 20px;
+        }
+
+        header h1 {
+            font-size: clamp(36px, 5vw, 55px);
+            margin-bottom: 15px;
+        }
+
+        header p {
+            max-width: 720px;
+            margin: 0 auto;
+            font-size: 19px;
+        }
+
+        main {
+            width: 90%;
+            max-width: 1100px;
+            margin: 50px auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #54218a;
+            margin-bottom: 25px;
+            font-size: 32px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 30px 24px;
+            text-align: center;
+            border-radius: 15px;
+            border-top: 5px solid #c9a24d;
+            box-shadow: 0 5px 20px rgba(50, 25, 70, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .contact-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .contact-card h3 {
+            color: #6f2dbd;
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .contact-card p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .contact-card a.link-action {
+            display: inline-block;
+            margin-top: 10px;
+            color: #6f2dbd;
+            font-weight: bold;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            border-bottom: 2px solid #e6c76b;
+            padding-bottom: 2px;
+            transition: color 0.2s ease;
+        }
+
+        .contact-card a.link-action:hover {
+            color: #c9a24d;
+        }
+
+        .contact-form-section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(50, 25, 70, 0.1);
+            border-top: 5px solid #c9a24d;
+            margin-bottom: 50px;
+        }
+
+        .contact-form-section h3 {
+            color: #54218a;
+            font-size: 26px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .contact-form-section p.subtitle {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555;
+            font-size: 17px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 18px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #443a4e;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 12px 14px;
+            border: 1px solid #d4c5e2;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            background: #faf7fd;
+            transition: border-color 0.3s;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #6f2dbd;
+            background: #ffffff;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .submit-btn {
+            background: #c9a24d;
+            color: #2c1446;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 10px auto 0;
+            width: fit-content;
+        }
+
+        .submit-btn:hover {
+            background: #e6c76b;
+            transform: translateY(-2px);
+        }
+
+        .times-box {
+            background: #f2e7ff;
+            padding: 35px;
+            border-left: 6px solid #c9a24d;
+            border-radius: 12px;
+            margin-bottom: 50px;
+        }
+
+        .times-box h3 {
+            color: #54218a;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .times-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 15px;
+        }
+
+        .times-list li {
+            background: white;
+            padding: 18px;
+            border-radius: 10px;
+            border-left: 4px solid #6f2dbd;
+        }
+
+        .times-list strong {
+            display: block;
+            color: #6f2dbd;
+            margin-bottom: 4px;
+        }
+
+        .verse-section {
+            background: linear-gradient(135deg, #54218a, #7c3bb2);
+            color: white;
+            text-align: center;
+            padding: 55px 20px;
+            border-radius: 14px;
+            margin-bottom: 50px;
+        }
+
+        .verse-section blockquote {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 21px;
+            font-style: italic;
+        }
+
+        .verse-section cite {
+            display: block;
+            margin-top: 12px;
+            color: #f0d27d;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 40px auto;
+        }
+
+        .button {
+            display: inline-block;
+            background: #c9a24d;
+            color: #2c1446;
+            padding: 12px 24px;
+            margin: 8px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #e6c76b;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: #2c1446;
+            color: white;
+            text-align: center;
+            padding: 28px 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 4px 0;
+        }
+
+        @media (max-width: 850px) {
+            nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 15px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 10px 14px;
+            }
+
+            .contact-grid,
+            .times-list,
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form-section {
+                padding: 25px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-brand">
+            <img src="church-logo.jpg" alt="Christ Life Restoration Ministries Logo" class="nav-logo">
+            <span>Christ Life Restoration Ministries</span>
+        </div>
+        <div class="nav-links">
+            <a href="Christ%20Life.html">Home</a>
+            <a href="Hope%20%26%20Strength.html">Hope &amp; Strength</a>
+            <a href="About%20Us.html">About Us</a>
+            <a href="Services.html">Services</a>
+            <a class="active" href="Contacts.html">Contact</a>
+            <a href="Programmer.html">Site Developer</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Contact Us</h1>
+        <p>We warmly welcome you to reach out. Whether you desire prayer, have questions about our ministry, or plan to worship with us in person, we are here for you.</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Get In Touch</h2>
+            <div class="contact-grid">
+
+                <!-- ADDRESS -->
+                <div class="contact-card">
+                    <div>
+                        <div class="contact-icon">📍</div>
+                        <h3>Church Address</h3>
+                        <p>
+                            <strong>Christ Life Restoration Ministries</strong><br>
+                            Phola Park, Dimbaza<br>
+                            East London, Eastern Cape<br>
+                            South Africa
+                        </p>
+                    </div>
+                    <div>
+                        <a href="https://maps.google.com/?q=Phola+Park,+Dimbaza,+East+London" target="_blank" rel="noopener noreferrer" class="link-action">
+                            Open in Google Maps ↗
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PHONE & WHATSAPP -->
+                <div class="contact-card">
+                    <div>
+                        <div class="contact-icon">📞</div>
+                        <h3>Phone &amp; WhatsApp</h3>
+                        <p>
+                            Call our prayer line or chat with our team on WhatsApp for immediate support.
+                        </p>
+                        <p>
+                            <strong>Phone:</strong> <a href="tel:+27664601559" style="color:#6f2dbd; text-decoration:none;">+27 66 460 1559</a>
+                        </p>
+                    </div>
+                    <div>
+                        <a href="https://wa.me/27664601559" target="_blank" rel="noopener noreferrer" class="link-action">
+                            Chat on WhatsApp 💬
+                        </a>
+                    </div>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="contact-card">
+                    <div>
+                        <div class="contact-icon">✉️</div>
+                        <h3>Email Inquiries</h3>
+                        <p>
+                            Send us a direct message for prayer requests, ministry partnerships, or general information.
+                        </p>
+                        <p>
+                            <strong>Email:</strong><br>
+                            <a href="mailto:livenimatu09@gmail.com" style="color:#6f2dbd; text-decoration:none;">livenimatu09@gmail.com</a>
+                        </p>
+                    </div>
+                    <div>
+                        <a href="mailto:livenimatu09@gmail.com" class="link-action">
+                            Compose Email ✉
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SERVICE TIMES -->
+        <section class="times-box">
+            <h3>🕊️ Worship &amp; Gathering Times</h3>
+            <p>You and your family are always welcome to join us for our weekly meetings and services:</p>
+            <ul class="times-list">
+                <li>
+                    <strong>Sunday Worship</strong>
+                    09:00 AM – 12:00 PM (Main Service: 10:00 AM)
+                </li>
+                <li>
+                    <strong>Wednesday Bible Study</strong>
+                    05:30 PM – 07:00 PM (Morning Prayer: 10:00 AM)
+                </li>
+                <li>
+                    <strong>Friday Prayer Meeting</strong>
+                    05:30 PM – 07:00 PM (Intercession &amp; Seeking God)
+                </li>
+            </ul>
+        </section>
+
+        <!-- CONTACT & PRAYER FORM -->
+        <section class="contact-form-section">
+            <h3>Send a Message or Prayer Request</h3>
+            <p class="subtitle">Please fill out the form below and our ministry team will get back to you with love and care.</p>
+
+            <form action="mailto:livenimatu09@gmail.com" method="post" enctype="text/plain">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="contact-name">Your Full Name</label>
+                        <input type="text" id="contact-name" name="name" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-phone">Phone Number / WhatsApp</label>
+                        <input type="tel" id="contact-phone" name="phone" placeholder="+27 00 000 0000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-email">Email Address</label>
+                        <input type="email" id="contact-email" name="email" placeholder="example@gmail.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-subject">Inquiry Type</label>
+                        <select id="contact-subject" name="subject">
+                            <option value="Prayer Request">Prayer Request</option>
+                            <option value="First-Time Visitor">First-Time Visitor / Planning a Visit</option>
+                            <option value="Pastoral Counseling">Pastoral Counseling</option>
+                            <option value="Ministry Information">Ministry Information</option>
+                            <option value="General Question">General Question</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="contact-message">Your Message or Prayer Request</label>
+                        <textarea id="contact-message" name="message" placeholder="Write your message or prayer request here..." required></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message / Prayer Request</button>
+            </form>
+        </section>
+
+        <!-- SCRIPTURE -->
+        <section class="verse-section">
+            <blockquote>
+                "Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus."
+            </blockquote>
+            <cite>Philippians 4:6–7</cite>
+        </section>
+
+        <!-- CTA BUTTONS -->
+        <section class="cta-section">
+            <h2>Explore More</h2>
+            <a class="button" href="Christ%20Life.html">Return to Home</a>
+            <a class="button" href="About%20Us.html">Learn More About Us</a>
+            <a class="button" href="Services.html">Our Services</a>
+            <a class="button" href="Hope%20%26%20Strength.html">Find Hope &amp; Strength</a>
+            <a class="button" href="Programmer.html">Site Developer</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2018–2026 Christ Life Restoration Ministries.</p>
+        <p>Faith • Hope • Love • Restoration</p>
+    </footer>
+
+</body>
+
+</html>
